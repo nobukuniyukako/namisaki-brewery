@@ -216,17 +216,68 @@ video {
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
 }
-.item-list a{
-    display: block;
+.item-list {
     background-color: rgb(248, 248, 248);
     border-radius: 10px;
+
+}
+.item-list a{
+    display: block;
     padding: 20px;
     width: 100%;
+    position: relative;
 }
-.item-list img{
+.item-list a img{
     height: 250px;
     object-fit: cover;
+
 }
+.item-list a:hover img {
+    content: "";
+    filter: blur(3px);
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    z-index: -1;
+    transition-duration: 0.4s;
+}
+
+.item-list a img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* 半透明の灰色 */
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.item-list a::after{  
+    content: "詳しく見る";
+    color: #121212;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 55%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition-duration: 0.2s;
+}
+.item-list a:hover::after,
+.item-list a:hover img::before {
+    opacity: 1;
+}
+
 .item-txt {
     width: 80%;
     max-width: 100%;

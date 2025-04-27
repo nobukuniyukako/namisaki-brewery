@@ -16,7 +16,6 @@ body{
     font-weight: 400;
     font-style: normal;
 }
-
 img {
   width: 100%;
   vertical-align: bottom;
@@ -39,31 +38,84 @@ a {
 }
 header {
     position: relative;
+
 }
-h1 {
+.logo {
     position: absolute;
-    top: 12px;
-    left: 30px;
+    top: 50px;
+    left: 50px;
+    z-index: 1;
 }
 
-h1 a {
+.logo a h1 {
     color: rgb(20, 20, 20);
     font-size: 1.5rem;
     font-weight: lighter;
     letter-spacing: 1.7px;
+    line-height: 20px;
+}
+
+.logoin {
+    animation: logoin 3s forwards;
+}
+    @keyframes logoin {
+        0% {
+            opacity: 0;
+        }
+        50%{
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+}
+    
+.navin {
+    animation: navin 3s forwards;
+}
+        @keyframes navin {
+            0% {
+                opacity: 0;
+            }
+            50%{
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+}
+.main-visual{
+    display: block;
+    overflow: hidden;
 }
 .main-visual img{
     object-fit: cover;
+    object-position: 50% 0%;
     width: 100%;
-    height: 100vh;
+    height: 75vh;
 }
-.main-title {
-    writing-mode:vertical-rl;
-    font-size: 3rem;
-    position: absolute;
-    top:200px;
-    right: 100px;
-    height: 400px;
+
+.main-fadein img{
+    animation: fade-in 3s ease forwards;
+  }
+        @keyframes fade-in {
+        0% {
+        opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        }
+
+.logo a p {
+    letter-spacing: 2px;
+
 }
 .title-copy {
     padding-top: 50px;
@@ -73,21 +125,22 @@ header nav {
     width: 100%;
 }
 header nav ul{
-    background-color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.18em;
     border-radius: 10px;
-    padding: 50px;
     position: absolute;
-    top:500px;
-    left: 100px;
-    height: 230px;
+    top: 50px;
+    right: 30px;
+    height: 240px;
+    z-index: 1;
+
 }
 header nav ul li{
-    margin: 0 15px;
+    margin: 0 25px;
     position: relative;
 }
 header nav ul li a{
     color: rgb(20, 20, 20);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 header nav ul li a::before{
@@ -97,7 +150,7 @@ header nav ul li a::before{
     right: -5px;
     width: 0px;
     height: 0px;
-    transition: all 0.6s;
+    transition: all 0.5s;
 }
 header nav ul li a:hover::before{
     position: absolute;
@@ -105,9 +158,8 @@ header nav ul li a:hover::before{
     top: 0;
     right: -5px;
     width: 3px;
-    height: 130px;
+    height: 160px;
     background-color: rgb(197, 194, 0);
-
 }    
 
 /* main */
@@ -119,6 +171,9 @@ header nav ul li a:hover::before{
 
 section {
     padding-top: 120px;
+}
+section.lineup{
+    padding-top: 80px;
 }
 
 .slide-items {
@@ -241,6 +296,7 @@ video {
     bottom: -3px;
     z-index: -1;
     transition-duration: 0.4s;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
 }
 
 .item-list a img::before {
@@ -258,7 +314,8 @@ video {
 .item-list a::after{  
     content: "詳しく見る";
     color: #121212;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
     border-radius: 50px;
     font-size: 20px;
     font-weight: bold;
@@ -371,118 +428,27 @@ small {
     font-size: 0.7rem;
 }
 
-
-
-/* company  contactのヘッダー */
-
-.sub-visual img{
-    object-fit: cover;
-    object-position: 50% 40%;
-    height: 300px;
-    padding-top: 70px;
-}    
-
-.sub-header.hamburger {
-    width: 75px;
-    height: 75px;
-} 
-.sub-header.hamburger span{
-    width: 35px;
-}    
-header.sub-header{
-    display: flex;
-    justify-content: right;
-    padding: 0 25px;
-    width: 100%;
-    height: 70px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 30;
-    background-color: rgb(255, 255, 255);
-    align-items: center;
-}
-.sub-header nav{
-    opacity: 0;
-    visibility: hidden;
-    z-index: 20;
-    transition: all 0.5s;
-    position: absolute;
-    top: 0;
-    right: -100%;
-}
-.sub-header nav ul{
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-    padding: 160px 150px 0px 40px;
-    position: absolute;
-    top: -50px;
-    right: -100px;
-    height: 400px;
-    width: 400px;
-    z-index: 0;
-}
-
-.open nav {
-    opacity: 1;
-    visibility: visible;
-    right: 0;
-}
-
-.sub-header .hamburger {
-    width: 30px;
-    height: 30px;
-    position: relative;
-    transition: all 0.5s;
-    cursor: pointer;
-    z-index: 20;
-}
-.sub-header .hamburger span {
-display: block;
-width: 100%;
-height: 2px;
-background-color: #333;
-transition: all 0.5s;
-position: absolute;
-}
-.hamburger span:nth-child(1){
-    top: 10%;
-}
-.hamburger span:nth-child(2){
-    top: 50%;
-}
-.hamburger span:nth-child(3){
-    top: 90%;
-}
-.open .hamburger span:nth-child(1) {
-    top: 50%;
-    transform: rotate(315deg);
-}
-.open .hamburger span:nth-child(2) {
-    opacity: 0;
-    visibility: hidden;
-}
-.open .hamburger span:nth-child(3) {
-    top: 50%;
-    transform: rotate(-315deg);
-}
-#mask {
-    display: none;          
+/* company  contactのヘッダー　*/
+    .sub-header a,
+    .sub-header  .logo h1{
+        color: white;
     }
-.open #mask {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(228, 241, 166, 0.8);
-    z-index: 15;
-}
+    .sub-visual img{
+        object-fit: cover;
+        height: 35vh;
+    }
 
-
-
+    .sub-visual::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 35vh;
+        z-index: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    
 /* company */
 
 section.company {
@@ -575,10 +541,10 @@ text-align: center;
 }
 
 input {
-    width: 100%;
+    width: 80%;
 }
 textarea {
-    width: 100%;
+    width: 80%;
 }
 .checkbox label{
     margin-right: 10%;
@@ -589,12 +555,19 @@ textarea {
 }
 .send {
     margin: 0 auto;
-    width: 30%;
+    width: 250px;
     background-color: #121212;
+    border: 1px solid #fff;
+    border-radius: 5px;
     color: #fff;
     padding: 10px;
     margin-top: 30px;
-    /* letter-spacing: 10px; */
+    transition: all 0.5s;
+}
+.send:hover {
+    background-color: #fff;
+    border: 1px solid #121212;
+    color: #121212;
 }
 
 
@@ -738,7 +711,6 @@ select {
     .main-visual img{
         object-position: 50% 20%;
         height: 380px;
-        padding-top: 70px;
     }    
 
     /* ハンバーガーメニュー */
@@ -755,13 +727,12 @@ select {
         justify-content: right;
         padding: 0 25px;
         width: 100%;
-        height: 70px;
-        position: fixed;
+        height: 100px;
+        position: absolute;
         top: 0;
         left: 0;
         right: 0;
         z-index: 30;
-        background-color: rgb(255, 255, 255);
         align-items: center;
     }
     header nav{
@@ -774,18 +745,21 @@ select {
         right: -100%;
     }
     header nav ul{
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: rgb(255, 255, 255);
         border-radius: 50%;
-        padding: 160px 150px 0px 40px;
+        padding: 170px 110px 0px 40px;
         position: absolute;
-        top: -50px;
-        /* left: 480px; */
-        right: -100px;
-        height: 400px;
-        width: 400px;
+        top: -70px;
+        right: -80px;
+        height: 430px;
+        width: 430px;
         z-index: 0;
     }
-
+    
+    .sub-header nav ul li a{
+        color: rgb(0, 0, 0);
+    }
+   
     .open nav {
         opacity: 1;
         visibility: visible;
@@ -801,12 +775,16 @@ select {
         z-index: 20;
     }
     .hamburger span {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #333;
-    transition: all 0.5s;
-    position: absolute;
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #121212;
+        border-radius: 10px;
+        transition: all 0.5s;
+        position: absolute;
+    }
+    .sub-hamburger span {
+        background-color: #ffffff;
     }
     .hamburger span:nth-child(1){
         top: 10%;
@@ -820,6 +798,7 @@ select {
     .open .hamburger span:nth-child(1) {
         top: 50%;
         transform: rotate(315deg);
+        background-color: rgb(197, 194, 0);
     }
     .open .hamburger span:nth-child(2) {
         opacity: 0;
@@ -828,6 +807,7 @@ select {
     .open .hamburger span:nth-child(3) {
         top: 50%;
         transform: rotate(-315deg);
+        background-color: rgb(197, 194, 0);
     }
     #mask {
         display: none;          
@@ -889,10 +869,16 @@ select {
         width: 80%;
         height: 80%;
     }
-    
+
+ /* footer */
+     footer {
+        padding: 30px 0 30px 0;
+     }
+
  /* company */
-    .company {
-        padding-top: 100px;
+    section.company {
+        padding-top: 0px;
+        width: 100%;
     }
     .company-item {
         flex-direction: column;
@@ -901,46 +887,48 @@ select {
     .company-txt{
         width: 100%;
         margin: 0 auto;
+        text-align: center;
     }
     .company-txt dl{
-        width: 100%;
-        display: flex;
+        /* width: 100%; */
+        /* display: flex;
         flex-wrap: wrap;
-        text-align: left;
+        text-align: left; */
+        justify-content: center;
+        margin: 0 auto;
     }
     .company-txt dt{
-        width: 35%;
-        padding: 15px 0;
+        width: 33%;
+        padding: 5px 0;
         display: flex;
         align-items: center;
         gap: 8px;
     }
     .company-txt dd{
-        width: 65%;
-        padding: 15px 0;
+        width: 45%;
+        padding: 5px 0;
     }
     .company-img {
-        object-position: 50% 30%;
         width: 100%;
+        object-position: 50% 30%;
         height: 250px;
         margin: 0 auto;
     }
-    
 
     /* contact */
-    .contact {
-        padding-top: 100px;
-    }
+    section.contact {
+        padding-top: 0px;
+    }    
     .form dl{
         flex-direction: column;
     }    
     .form dt{
-        width: 100%;
+        width: auto;
         margin: 20px 0 0 0;
         padding: 0px;
     }
     .form dd {
-        width: 100%;
+        width: auto;
         margin: 0;
         padding: 10px;
         background-color: rgb(255, 255, 255);

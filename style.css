@@ -438,8 +438,9 @@ small {
         overflow: hidden;
     }
     .sub-visual img{
-        width: 100%;
         object-fit: cover;
+        object-position: 50% 50%;
+        width: 100%;
         height: 37vh;
     }
 

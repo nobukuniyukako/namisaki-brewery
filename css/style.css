@@ -428,14 +428,20 @@ small {
     font-size: 0.7rem;
 }
 
-/* company  contactのヘッダー　*/
+/* company  contact alcoholのヘッダー　*/
     .sub-header a,
     .sub-header  .logo h1{
         color: white;
     }
+    .sub-visual {
+        display: block;
+        overflow: hidden;
+    }
     .sub-visual img{
+        max-width: 100%;
+        width: 100%;
         object-fit: cover;
-        height: 35vh;
+        height: 37vh;
     }
 
     .sub-visual::after {
